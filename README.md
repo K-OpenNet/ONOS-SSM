@@ -1,9 +1,10 @@
-ONOS : Open Network Operating System
+ONOS-SSM: Scalable Security-Mode Open Network Operating System
 ====================================
 
-### What is ONOS?
-ONOS is a new SDN network operating system designed for high availability,
-performance, scale-out.
+### What is ONOS-SSM?
+ONOS-SSM is a new SDN network operating system designed for high availability, performance, scale-out and security.
+
+### ONOS-SSM is under developing to support BUCK, new build system.
 
 ### Top-Level Features
 
