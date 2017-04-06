@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<api-entry>
+    <onos-api>
+        <org.onosproject.app.ApplicationService>
+            <getApplication>APP_READ</getApplication>
+            <getApplications>APP_READ</getApplications>
+            <getState>APP_READ</getState>
+            <getId>APP_READ</getId>
+            <getPermissions>APP_READ</getPermissions>
+
+            <addListener>APP_EVENT</addListener>
+            <removeListener>APP_EVENT</removeListener>
+        </org.onosproject.app.ApplicationService>
+
+        <org.onosproject.core.CoreService>
+            <version>APP_READ</version>
+            <getAppId>APP_READ</getAppId>
+            <getAppIds>APP_READ</getAppIds>
+            <getIdGenerator>APP_READ</getIdGenerator>
+
+            <registerApplication>APP_WRITE</registerApplication>
+        </org.onosproject.core.CoreService>
+
+        <org.onosproject.cfg.ComponentConfigService>
+            <getComponentNames>CONFIG_READ</getComponentNames>
+            <getProperties>CONFIG_READ</getProperties>
+
+            <registerProperties>CONFIG_WRITE</registerProperties>
+            <unregisterProperties>CONFIG_WRITE</unregisterProperties>
+            <setProperty>CONFIG_WRITE</setProperty>
+            <unsetProperty>CONFIG_WRITE</unsetProperty>
+            <preSetProperty>CONFIG_WRITE</preSetProperty>
+        </org.onosproject.cfg.ComponentConfigService>
+
+        <org.onosproject.net.config.NetworkConfigService>
+            <getSubjectClasses>CONFIG_READ</getSubjectClasses>
+            <getSubjectFactory>CONFIG_READ</getSubjectFactory>
+            <getConfigClass>CONFIG_READ</getConfigClass>
+            <getSubjects>CONFIG_READ</getSubjects>
+            <getConfig>CONFIG_READ</getConfig>
+
+            <addConfig>CONFIG_WRITE</addConfig>
+            <applyConfig>CONFIG_WRITE</applyConfig>
+            <removeConfig>CONFIG_WRITE</removeConfig>
+        </org.onosproject.net.config.NetworkConfigService>
+
+        <org.onosproject.codec.CodecService>
+            <getCodec>CODEC_READ</getCodec>
+            <getCodecs>CODEC_READ</getCodecs>
+
+            <registerCodec>CODEC_WRITE</registerCodec>
+            <unregisterCodec>CODEC_WRITE</unregisterCodec>
+        </org.onosproject.codec.CodecService>
+
+        <org.onosproject.store.service.LogicalClockService>
+            <getTimestamp>CLOCK_WRITE</getTimestamp>
+        </org.onosproject.store.service.LogicalClockService>
+
+        <org.onosproject.cluster.ClusterService>
+            <getLocalNode>CLUSTER_READ</getLocalNode>
+            <getNode>CLUSTER_READ</getNode>
+            <getNodes>CLUSTER_READ</getNodes>
+            <getState>CLUSTER_READ</getState>
+            <getLastUpdated>CLUSTER_READ</getLastUpdated>
+
+            <addListener>CLUSTER_EVENT</addListener>
+            <removeListener>CLUSTER_EVENT</removeListener>
+        </org.onosproject.cluster.ClusterService>
+
+        <org.onosproject.cluster.ClusterMetadataService>
+            <getClusterMetadata>CLUSTER_READ</getClusterMetadata>
+            <getLocalNode>CLUSTER_READ</getLocalNode>
+        </org.onosproject.cluster.ClusterMetadataService>
+
+        <org.onosproject.mastership.MastershipTermService>
+            <getMastershipTerm>CLUSTER_READ</getMastershipTerm>
+        </org.onosproject.mastership.MastershipTermService>
+
+        <org.onosproject.cluster.LeadershipService>
+            <getLeader>CLUSTER_READ</getLeader>
+            <getLeadership>CLUSTER_READ</getLeadership>
+            <ownedTopics>CLUSTER_READ</ownedTopics>
+            <getLeaderboard>CLUSTER_READ</getLeaderboard>
+            <getCandidates>CLUSTER_READ</getCandidates>
+
+            <runForLeadership>CLUSTER_WRITE</runForLeadership>
+            <withdraw>CLUSTER_WRITE</withdraw>
+
+            <addListener>CLUSTER_EVENT</addListener>
+            <removeListener>CLUSTER_EVENT</removeListener>
+        </org.onosproject.cluster.LeadershipService>
+
+        <org.onosproject.mastership.MastershipService>
+            <getLocalRole>CLUSTER_READ</getLocalRole>
+            <getMasterFor>CLUSTER_READ</getMasterFor>
+            <getNodesFor>CLUSTER_READ</getNodesFor>
+            <getDevicesOf>CLUSTER_READ</getDevicesOf>
+
+            <requestRoleFor>CLUSTER_WRITE</requestRoleFor>
+            <relinquishMastership>CLUSTER_WRITE</relinquishMastership>
+
+            <addListener>CLUSTER_EVENT</addListener>
+            <removeListener>CLUSTER_EVENT</removeListener>
+        </org.onosproject.mastership.MastershipService>
+
+        <org.onosproject.net.device>
+            <getDeviceCount>DEVICE_READ</getDeviceCount>
+            <getDevices>DEVICE_READ</getDevices>
+            <getAvailableDevices>DEVICE_READ</getAvailableDevices>
+            <getDevice>DEVICE_READ</getDevice>
+            <getRole>DEVICE_READ</getRole>
+            <getPort>DEVICE_READ</getPort>
+            <getPorts>DEVICE_READ</getPorts>
+            <getPortStatistics>DEVICE_READ</getPortStatistics>
+            <isAvailable>DEVICE_READ</isAvailable>
+            <getPortdeltaStatistics>DEVICE_READ</getPortdeltaStatistics>
+
+            <addListener>DEVICE_EVENT</addListener>
+            <removeListener>DEVICE_EVENT</removeListener>
+        </org.onosproject.net.device>
+
+        <org.onosproject.net.device.DeviceClockService>
+            <isTimestampAvailable>DEVICE_READ</isTimestampAvailable>
+            <getTimestamp>DEVICE_READ</getTimestamp>
+        </org.onosproject.net.device.DeviceClockService>
+
+        <org.onosproject.net.driver.DriverService>
+            <getDriver>DRIVER_READ</getDriver>
+            <getDrivers>DRIVER_READ</getDrivers>
+
+            <createHandler>DRIVER_WRITE</createHandler>
+        </org.onosproject.net.driver.DriverService>
+
+        <org.onosproject.event.EventDeliveryService>
+            <getDispatchTimeLimit>EVENT_READ</getDispatchTimeLimit>
+            <setDispatchTimeLimit>EVENT_WRITE</setDispatchTimeLimit>
+        </org.onosproject.event.EventDeliveryService>
+
+        <org.onosproject.net.flow.FlowRuleService>
+            <getFlowRuleCount>FLOWRULE_READ</getFlowRuleCount>
+            <getFlowEntries>FLOWRULE_READ</getFlowEntries>
+            <getFlowRulesById>FLOWRULE_READ</getFlowRulesById>
+            <getFlowRulesByGroupId>FLOWRULE_READ</getFlowRulesByGroupId>
+            <getFlowTableStatistics>FLOWRULE_READ</getFlowTableStatistics>
+
+            <applyFlowRules>FLOWRULE_WRITE</applyFlowRules>
+            <removeFlowRules>FLOWRULE_WRITE</removeFlowRules>
+            <removeFlowRulesById>FLOWRULE_WRITE</removeFlowRulesById>
+            <apply>FLOWRULE_WRITE</apply>
+
+            <addListener>FLOWRULE_EVENT</addListener>
+            <removeListener>FLOWRULE_EVENT</removeListener>
+        </org.onosproject.net.flow.FlowRuleService>
+
+        <org.onosproject.net.flowobjective.FlowObjectiveService>
+            <filter>FLOWRULE_WRITE</filter>
+            <forward>FLOWRULE_WRITE</forward>
+            <next>FLOWRULE_WRITE</next>
+            <allocateNextId>FLOWRULE_WRITE</allocateNextId>
+            <initPolicy>FLOWRULE_WRITE</initPolicy>
+        </org.onosproject.net.flowobjective.FlowObjectiveService>
+
+        <org.onosproject.net.group.GroupService>
+            <getGroup>GROUP_READ</getGroup>
+            <getGroups>GROUP_READ</getGroups>
+
+            <addGroup>GROUP_WRITE</addGroup>
+            <addBucketsToGroup>GROUP_WRITE</addBucketsToGroup>
+            <removeBucketsFromGroup>GROUP_WRITE</removeBucketsFromGroup>
+            <removeGroup>GROUP_WRITE</removeGroup>
+
+            <addListener>GROUP_EVENT</addListener>
+            <removeListener>GROUP_EVENT</removeListener>
+        </org.onosproject.net.group.GroupService>
+
+        <org.onosproject.net.host.HostService>
+            <getHostCount>HOST_READ</getHostCount>
+            <getHosts>HOST_READ</getHosts>
+            <getHost>HOST_READ</getHost>
+            <getHostByVlan>HOST_READ</getHostByVlan>
+            <getHostByMac>HOST_READ</getHostByMac>
+            <getHostByIp>HOST_READ</getHostByIp>
+            <getConnectedHosts>HOST_READ</getConnectedHosts>
+            <getAddressBindings>HOST_READ</getAddressBindings>
+            <getAddressBindingsForPort>HOST_READ</getAddressBindingsForPort>
+
+            <requestMac>HOST_WRITE</requestMac>
+
+            <startMonitoringIp>HOST_EVENT</startMonitoringIp>
+            <stopMonitoringIp>HOST_EVENT</stopMonitoringIp>
+        </org.onosproject.net.host.HostService>
+
+        <org.onosproject.net.intent.IntentService>
+            <getIntent>INTENT_READ</getIntent>
+            <getIntents>INTENT_READ</getIntents>
+            <getIntentState>INTENT_READ</getIntentState>
+            <getInstallableIntents>INTENT_READ</getInstallableIntents>
+            <isLocal>INTENT_READ</isLocal>
+            <getPending>INTENT_READ</getPending>
+            <getIntentData>INTENT_READ</getIntentData>
+
+            <submit>INTENT_WRITE</submit>
+            <withdraw>INTENT_WRITE</withdraw>
+            <purge>INTENT_WRITE</purge>
+
+            <addListener>INTENT_EVENT</addListener>
+            <removeListener>INTENT_EVENT</removeListener>
+        </org.onosproject.net.intent.IntentService>
+
+        <org.onosproject.net.intent.IntentExtensionService>
+            <getCompilers>INTENT_READ</getCompilers>
+
+            <registerCompiler>INTENT_WRITE</registerCompiler>
+            <unregisterCompiler>INTENT_WRITE</unregisterCompiler>
+        </org.onosproject.net.intent.IntentExtensionService>
+
+        <org.onosproject.net.intent.IntentPartitionService>
+            <isMine>INTENT_READ</isMine>
+            <getLeader>INTENT_READ</getLeader>
+
+            <addListener>INTENT_EVENT</addListener>
+            <removeListener>INTENT_EVENT</removeListener>
+        </org.onosproject.net.intent.IntentPartitionService>
+
+        <org.onosproject.store.primitives.PartitionService>
+            <getNumberOfPartitions>PARTITION_READ</getNumberOfPartitions>
+            <getConfiguredMembers>PARTITION_READ</getConfiguredMembers>
+            <getActiveMembersMembers>PARTITION_READ</getActiveMembersMembers>
+            <getAllPartitionIds>PARTITION_READ</getAllPartitionIds>
+            <getDistributedPrimitiveCreator>PARTITION_READ</getDistributedPrimitiveCreator>
+
+            <addListener>PARTITION_EVENT</addListener>
+            <removeListener>PARTITION_EVENT</removeListener>
+        </org.onosproject.store.primitives.PartitionService>
+
+        <org.onosproject.net.link.LinkService>
+            <getLinkCount>LINK_READ</getLinkCount>
+            <getLinks>LINK_READ</getLinks>
+            <getLink>LINK_READ</getLink>
+            <getActiveLinks>LINK_READ</getActiveLinks>
+            <getDeviceLinks>LINK_READ</getDeviceLinks>
+            <getDeviceEgressLinks>LINK_READ</getDeviceEgressLinks>
+            <getDeviceIngressLinks>LINK_READ</getDeviceIngressLinks>
+            <getEgressLinks>LINK_READ</getEgressLinks>
+            <getIngressLinks>LINK_READ</getIngressLinks>
+
+            <addListener>LINK_EVENT</addListener>
+            <removeListener>LINK_EVENT</removeListener>
+        </org.onosproject.net.link.LinkService>
+
+        <org.onosproject.net.resource.link.LinkResourceService>
+            <getAllocations>LINK_READ</getAllocations>
+            <getAvailableResources>LINK_READ</getAvailableResources>
+
+            <requestResources>LINK_WRITE</requestResources>
+            <releaseResources>LINK_WRITE</releaseResources>
+            <updateResources>LINK_WRITE</updateResources>
+        </org.onosproject.net.resource.link.LinkResourceService>
+
+        <org.onosproject.store.service.MutexExecutionService>
+            <execute>MUTEX_WRITE</execute>
+        </org.onosproject.store.service.MutexExecutionService>
+
+        <org.onosproject.net.packet.PacketContext>
+            <time>PACKET_READ</time>
+            <inPacket>PACKET_READ</inPacket>
+            <outPacket>PACKET_READ</outPacket>
+            <treatmentBuilder>PACKET_READ</treatmentBuilder>
+            <isHandled>PACKET_READ</isHandled>
+
+            <send>PACKET_WRITE</send>
+            <block>PACKET_WRITE</block>
+        </org.onosproject.net.packet.PacketContext>
+
+        <org.onosproject.net.packet.PacketService>
+            <requestPackets>PACKET_READ</requestPackets>
+            <getProcessors>PACKET_READ</getProcessors>
+            <cancelPackets>PACKET_READ</cancelPackets>
+            <getRequests>PACKET_READ</getRequests>
+            <emit>PACKET_WRITE</emit>
+            <addProcessor>PACKET_EVENT</addProcessor>
+            <removeProcessor>PACKET_EVENT</removeProcessor>
+        </org.onosproject.net.packet.PacketService>
+
+        <org.onosproject.net.proxyarp.ProxyArpService>
+            <isKnown>PACKET_READ</isKnown>
+
+            <reply>PACKET_WRITE</reply>
+            <forward>PACKET_WRITE</forward>
+            <handlePacket>PACKET_WRITE</handlePacket>
+        </org.onosproject.net.proxyarp.ProxyArpService>
+
+        <org.onosproject.net.edge.EdgePortService>
+            <emitPacket>PACKET_WRITE</emitPacket>
+
+            <isEdgePoint>TOPOLOGY_READ</isEdgePoint>
+            <getEdgePoints>TOPOLOGY_READ</getEdgePoints>
+        </org.onosproject.net.edge.EdgePortService>
+
+        <org.onosproject.persistence.PersistenceService>
+            <persistentMapBuilder>PERSISTENCE_WRITE</persistentMapBuilder>
+            <persistentSetBuilder>PERSISTENCE_WRITE</persistentSetBuilder>
+        </org.onosproject.persistence.PersistenceService>
+
+        <org.onosproject.net.region.RegionService>
+            <getRegion>REGION_READ</getRegion>
+            <getRegions>REGION_READ</getRegions>
+            <getRegionForDevice>REGION_READ</getRegionForDevice>
+            <getRegionForDevices>REGION_READ</getRegionForDevices>
+        </org.onosproject.net.region.RegionService>
+
+        <org.onosproject.net.newresource.ResourceService>
+            <getResourceAllocations>RESOURCE_READ</getResourceAllocations>
+            <getAvailableResources>RESOURCE_READ</getAvailableResources>
+            <getAvailableResourceValues>RESOURCE_READ</getAvailableResourceValues>
+            <getRegisteredResources>RESOURCE_READ</getRegisteredResources>
+            <isAvailable>RESOURCE_READ</isAvailable>
+
+            <allocate>RESOURCE_WRITE</allocate>
+            <release>RESOURCE_WRITE</release>
+
+            <addListener>RESOURCE_EVENT</addListener>
+            <removeListener>RESOURCE_EVENT</removeListener>
+        </org.onosproject.net.newresource.ResourceService>
+
+        <org.onosproject.net.statistic.StatisticService>
+            <load>STATISTIC_READ</load>
+            <max>STATISTIC_READ</max>
+            <min>STATISTIC_READ</min>
+            <highesthitter>STATISTIC_READ</highesthitter>
+        </org.onosproject.net.statistic.StatisticService>
+
+        <org.onosproject.net.topology.PathService>
+            <getPaths>TOPOLOGY_READ</getPaths>
+            <getDisjointPaths>TOPOLOGY_READ</getDisjointPaths>
+        </org.onosproject.net.topology.PathService>
+
+        <org.onosproject.net.topology.TopologyService>
+            <currentTopology>TOPOLOGY_READ</currentTopology>
+            <isLatest>TOPOLOGY_READ</isLatest>
+            <getGraph>TOPOLOGY_READ</getGraph>
+            <getClusters>TOPOLOGY_READ</getClusters>
+            <getCluster>TOPOLOGY_READ</getCluster>
+            <getClusterDevices>TOPOLOGY_READ</getClusterDevices>
+            <getClusterLinks>TOPOLOGY_READ</getClusterLinks>
+            <getPaths>TOPOLOGY_READ</getPaths>
+            <getDisjointPaths>TOPOLOGY_READ</getDisjointPaths>
+            <isInfrastructure>TOPOLOGY_READ</isInfrastructure>
+            <isBroadcastPoint>TOPOLOGY_READ</isBroadcastPoint>
+
+            <addListener>TOPOLOGY_EVENT</addListener>
+            <removeListener>TOPOLOGY_EVENT</removeListener>
+        </org.onosproject.net.topology.TopologyService>
+
+        <org.onosproject.ui.UiExtensionService>
+            <getExtensions>UI_READ</getExtensions>
+            <getViewExtension>UI_READ</getViewExtension>
+
+            <register>UI_WRITE</register>
+            <unregister>UI_WRITE</unregister>
+        </org.onosproject.ui.UiExtensionService>
+
+        <org.onosproject.store.service.StorageService>
+            <eventuallyConsistentMapBuilder>STORAGE_WRITE</eventuallyConsistentMapBuilder>
+            <consistentMapBuilder>STORAGE_WRITE</consistentMapBuilder>
+            <setBuilder>STORAGE_WRITE</setBuilder>
+            <queueBuilder>STORAGE_WRITE</queueBuilder>
+            <atomicCounterBuilder>STORAGE_WRITE</atomicCounterBuilder>
+            <atomicValueBuilder>STORAGE_WRITE</atomicValueBuilder>
+            <leaderElectorBuilder>STORAGE_WRITE</leaderElectorBuilder>
+            <transactionContextBuilder>STORAGE_WRITE</transactionContextBuilder>
+        </org.onosproject.store.service.StorageService>
+
+        <org.onosproject.net.key.DeviceKeyService>
+            <getDeviceKeys>DEVICE_KEY_READ</getDeviceKeys>
+            <getDeviceKey>DEVICE_KEY_READ</getDeviceKey>
+        </org.onosproject.net.key.DeviceKeyService>
+
+        <org.onosproject.net.statistic.FlowStatisticService>
+            <loadSummary>STATISTIC_READ</loadSummary>
+            <loadAllByType>STATISTIC_READ</loadAllByType>
+            <loadTopnByType>STATISTIC_READ</loadTopnByType>
+        </org.onosproject.net.statistic.FlowStatisticService>
+    </onos-api>
+</api-entry>
