@@ -41,29 +41,38 @@ public class ClassVisitor extends EmptyVisitor {
 
         if(givenType.equals("api")) {
             OnosApiStore oas = OnosApiStore.getInstance();
+
             for (int i = 0; i < methods.length; i++) {
                 if(jc.getClassName().endsWith("Service") && !jc.getClassName().contains("ProviderService") && !jc.getClassName().contains("security")) {
                     oas.putMapper(new NameBuilder().interfaceNameBuilder(methods[i],jc), null, null);
                 }
             }
         }
+
         else if (givenType.equals("core")) {
             OnosApiStore oas = OnosApiStore.getInstance();
+
             for (int i = 0; i < methods.length; i++) {
                 String[] interNames = jc.getInterfaceNames();
+
                 for(String interName : interNames) {
                     interName = new NameBuilder().interfaceNameBuilder(methods[i],interName);
+
                     for (int j=0; j< oas.getMappers().size() ; j++) {
                         OnosApiMapper mapper = oas.getMappers().get(j);
+
                         if(mapper.interfaceName.equals(interName)) {
                             mapper.implementedClassName = new NameBuilder().classNameBuilder(methods[i],jc);
                             break;
                         }
                     }
                 }
+
                 methods[i].accept(this);
+
             }
         }
+
         else if(givenType.equals("app-service")) {
             ThirdPartyServices tps = ThirdPartyServices.getInstance();
             for (int i = 0; i < methods.length; i++) {
@@ -98,6 +107,7 @@ public class ClassVisitor extends EmptyVisitor {
             }
         }
     }
+
     /**
      * Implemented method of interface org.apache.bcel.classfile.Visitor.
      */
@@ -109,6 +119,7 @@ public class ClassVisitor extends EmptyVisitor {
             }
         }
     }
+
     /**
      * Implemented method of interface org.apache.bcel.classfile.Visitor.
      */
