@@ -177,6 +177,7 @@ public final class DefaultPolicyBuilder {
         return result;
     }
 
+    // Default Permissions
     public static List<Permission> getDefaultPerms() {
         List<Permission> permSet = Lists.newArrayList();
         permSet.add(new PackagePermission("*", PackagePermission.EXPORTONLY));
@@ -187,6 +188,7 @@ public final class DefaultPolicyBuilder {
         return permSet;
     }
 
+    // Admin Default Permissions
     private static List<Permission> getAdminDefaultPerms() {
         List<Permission> permSet = Lists.newArrayList();
         permSet.add(new ServicePermission(ApplicationAdminService.class.getName(), ServicePermission.GET));
@@ -379,6 +381,7 @@ public final class DefaultPolicyBuilder {
     }
 
 
+    // get Permission
     public static org.onosproject.security.Permission getOnosPermission(Permission permission) {
         if (permission instanceof AppPermission) {
             return new org.onosproject.security.Permission(AppPermission.class.getName(), permission.getName(), "");
