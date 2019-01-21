@@ -109,7 +109,6 @@ public class SecurityModeManager implements SecurityAdminService {
             return;
         }
         store.setDelegate(delegate);
-
         log.info("Security-Mode Started");
     }
 
@@ -119,7 +118,6 @@ public class SecurityModeManager implements SecurityAdminService {
         logReaderService.removeLogListener(securityLogListener);
         store.unsetDelegate(delegate);
         log.info("Stopped");
-
     }
 
     @Override
@@ -178,10 +176,12 @@ public class SecurityModeManager implements SecurityAdminService {
                 Permission javaPerm =
                         ((AccessControlException) entry.getException()).getPermission();
                 org.onosproject.security.Permission permission = DefaultPolicyBuilder.getOnosPermission(javaPerm);
+
                 if (permission == null) {
                     log.warn("Unsupported permission requested.");
                     return;
                 }
+
                 store.getApplicationIds(location).stream().filter(
                         appId -> store.isSecured(appId) &&
                                 appAdminService.getState(appId) == ApplicationState.ACTIVE).forEach(appId -> {
@@ -267,6 +267,7 @@ public class SecurityModeManager implements SecurityAdminService {
             print("Unknown application.");
             return null;
         }
+
         List<Permission> appPerms;
         switch (app.role()) {
             case ADMIN:
