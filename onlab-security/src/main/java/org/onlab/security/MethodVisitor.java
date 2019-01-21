@@ -1,7 +1,7 @@
 package org.onlab.security;
 
 /**
- * Created by sdn on 16. 2. 13.
+ * Created by sdn on 16.2.13.
  */
 
 import org.apache.bcel.classfile.*;
@@ -62,6 +62,7 @@ public class MethodVisitor extends EmptyVisitor {
      */
     private boolean visitInstruction(Instruction i) {
         short opcode = i.getOpcode();
+
         if (givenType.equals("core") && i instanceof GETSTATIC) {
             GETSTATIC st = (GETSTATIC) i;
             permission = st.getFieldName(constantPoolGen);
@@ -77,6 +78,7 @@ public class MethodVisitor extends EmptyVisitor {
         if (givenType.equals("core")) {
             classPermissionMapper((Object) i);
         }
+
         else if (givenType.equals("app-impl")) {
             String visited = new NameBuilder().classNameBuilder(i.getReturnType(constantPoolGen), i.getReferenceType(constantPoolGen).toString(), i.getMethodName(constantPoolGen), i.getArgumentTypes(constantPoolGen));
             String perm =new String();
@@ -105,6 +107,7 @@ public class MethodVisitor extends EmptyVisitor {
                         }
                     }
                 }
+
                 else {
                     ThirdPartyServices tps = ThirdPartyServices.getInstance();
                     for (int k=0; k<tps.getComponents().size();k++) {
@@ -120,6 +123,7 @@ public class MethodVisitor extends EmptyVisitor {
                 }
             }
         }
+
         else {
             String visited = new NameBuilder().classNameBuilder(i.getReturnType(constantPoolGen), i.getReferenceType(constantPoolGen).toString(), i.getMethodName(constantPoolGen), i.getArgumentTypes(constantPoolGen));
             List<OnosApiMapper> oams = OnosApiStore.getInstance().getMappers();
