@@ -58,7 +58,9 @@ public class PolicyGenManager {
         else if(type.equals("api")) {
             jarPaths.add("/home/sdn/.m2/repository/org/onosproject/onos-api/1.7.0-SNAPSHOT/onos-api-1.7.0-SNAPSHOT.jar");
             jarPaths.add("/home/sdn/.m2/repository/org/onosproject/onos-incubator-api/1.7.0-SNAPSHOT/onos-incubator-api-1.7.0-SNAPSHOT.jar");
-        }
+        } else {
+	    System.out.println("input core or api");
+	}
     }
     public PolicyGenManager(Set<String> locations, String name) {
         appName = name;
@@ -124,20 +126,26 @@ public class PolicyGenManager {
         String[] sparsedPath = parsedPath[1].split("-");
         return sparsedPath[2];
     }
+
     private void recursiveRefineAppService(ThirdPartyComponent tpc, List<String> serviceList) {
         ThirdPartyServices tps = ThirdPartyServices.getInstance();
         List<ThirdPartyComponent> tpcs = tps.getComponents();
 
         for (int i = 0; i < serviceList.size(); i++) {
+
             for (int j = 0; j < tpcs.size(); j++) {
                 ThirdPartyComponent tempTpc = tpcs.get(j);
+
                 if (tempTpc.interfaceClass.equals(serviceList.get(i))) {
+
                     for (int permNum = 0; permNum < tempTpc.permissionList.size(); permNum++) {
                         String tempPermission = tempTpc.permissionList.get(permNum);
+
                         if (!tpc.permissionList.contains(tempPermission)) {
                             tpc.putPermission(tempPermission);
                         }
                     }
+
                     for (int kk = 0; kk < tempTpc.otherServiceList.size(); kk++) {
                         serviceList.add(tempTpc.otherServiceList.get(kk));
                     }
@@ -155,8 +163,6 @@ public class PolicyGenManager {
      * Inspection for given application or ONOS core.
      */
     public void start(String type) {
-
-
         ClassParser cp;
 
         if (type.equals("application")) {
