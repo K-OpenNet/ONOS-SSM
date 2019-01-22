@@ -34,5 +34,7 @@ Our Contributions: https://gerrit.onosproject.org/#/q/Heedo+Kang
 
 ## Publications
 [Technical Document1](https://github.com/K-OpenNet/Main/blob/master/Technical_Documents/K-ONE_%2309_ONOS-%EA%B0%80%EC%83%81_%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC_%EC%A0%91%EA%B7%BC_%EC%A0%9C%EC%96%B4%EB%A5%BC_%EC%9C%84%ED%95%9C_Security-Mode_ONOS_KAIST_%EC%9D%B4%EC%8A%B9%ED%98%84-v1.0.pdf)
+
 [Technical Document2](https://github.com/K-OpenNet/Main/blob/master/Technical_Documents/K-ONE_%2310_ONOS-Security-Mode_ONOS_%EA%B8%B0%EB%B0%98_%EC%9E%90%EB%8F%99_%ED%8D%BC%EB%AF%B8%EC%85%98_%EC%B6%94%EC%B6%9C_KAIST_%EA%B9%80%EC%A7%84%EC%9A%B0-v1.0.pdf)
+
 [ONK 2016 Fall Poster](https://github.com/K-OpenNet/K-ONE/blob/master/Demonstrations/ONK_2016_Fall/%5BPoster%5DDemo%235_Security-Mode-ONOS_KAIST.pdf)
