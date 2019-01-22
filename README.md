@@ -29,6 +29,7 @@ ONOS-SSM is under developing to support BUCK, new build system.
 
 ## Target Open Source Project
 Security-Mode ONOS: https://wiki.onosproject.org/display/ONOS/Security-Mode+ONOS
+
 Our Contributions: https://gerrit.onosproject.org/#/q/Heedo+Kang
 
 ## Publications
