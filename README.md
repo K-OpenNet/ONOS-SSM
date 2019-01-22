@@ -1,10 +1,9 @@
 ONOS-SSM: Scalable Security-Mode Open Network Operating System
 ====================================
 
-### What is ONOS-SSM?
-ONOS-SSM is a new SDN network operating system designed for high availability, performance, scale-out and security.
-
-### ONOS-SSM is under developing to support BUCK, new build system.
+### What is ONOS?
+ONOS is a new SDN network operating system designed for high availability,
+performance, scale-out.
 
 ### Top-Level Features
 
@@ -24,5 +23,10 @@ ONOS-SSM is a new SDN network operating system designed for high availability, p
   controlled by distributed routing protocols such as BGP.
 * IP-Optical use case demonstration.
 
-Checkout out our [website](http://www.onosproject.org) and our
-[tools](http://www.onosproject.org/software/#tools)
+### What is ONOS-SSM?
+ONOS-SSM is a new SDN network operating system designed for high availability, performance, scale-out and security.
+ONOS-SSM is under developing to support BUCK, new build system.
+
+## Target Open Source Project
+
+## Publications
