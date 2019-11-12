@@ -752,10 +752,6 @@ class makePermission:
 		print permission
 		return permission
 
-		#tt= map(lambda x: list(x.subtress(filter=lambda x: x.node=='NN')),NPs)
-
-		#print tt
-		
 	def semanticParsing(self,desc):
 		url='http://cogcomp.cs.illinois.edu/demo_files/SRL.php'
 	
@@ -766,9 +762,7 @@ class makePermission:
 		r = requests.post(url,data)
 		soup = bs(r.text,"lxml")
 		table = soup.find('table', {"class":"table table-condensed"})
-#print table
-#table_body = table.find('tbody')
-#print table_body
+
 		f1 = open('/home/sdn/temp.txt', 'w+')
 		rows = table.findAll('tr')
 
@@ -824,11 +818,7 @@ class makePermission:
 ##print response.read()
 
 m = makePermission()
-#m.semanticParsing2("Once reclassification is complete for a device, this method will be called.","",0)
-#m.getFloodlightDesc()
-#m.semanticParsing2("asdfasfaesf ","/home/sdn/test.txt")
-#m.preprocessing("Transactionally releases the specified resource allocations.")
+
 #m.drawOnosTree()
 
 m.getOnosDesc()
-
