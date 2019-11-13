@@ -386,30 +386,30 @@ class makePermission:
 		print '------------------------------------------------------------------------------------------------------------'
 		f1.write(str(self.tree.show()))
 		f1.close()
-			#if len(implementations) is 1:
-			#	dt = implementations[0].findAll('dt')
-			#	dtValue=dt[0].contents[0]
-			#	if dtValue is "All Implemented Interfaces:" :
-			#if len(implementations) is not 1:
-			#	if len(implementations) is 2:
-			#		implementationLinks = implementations[1].findAll('a')
-			#		for implementationLink in implementationLinks:
-			#			implLink = implementationLink.get('href')
-			#			implDoc = urllib2.urlopen(url+interfaceLink+"/../"+implLink)
-			#			soup3 = bs(implDoc.read(),"lxml")
-			#			implSubTitle = soup3.find('div', {"class":"subTitle"}).contents[0]
-			#			implTitle = soup3.find('h2',{"class":"title"}).contents[0].split('Class ')[1]
-			#			print "Impl: "+ implSubTitle+"."+implTitle
+			if len(implementations) is 1:
+				dt = implementations[0].findAll('dt')
+				dtValue=dt[0].contents[0]
+				if dtValue is "All Implemented Interfaces:" :
+			if len(implementations) is not 1:
+				if len(implementations) is 2:
+					implementationLinks = implementations[1].findAll('a')
+					for implementationLink in implementationLinks:
+						implLink = implementationLink.get('href')
+						implDoc = urllib2.urlopen(url+interfaceLink+"/../"+implLink)
+						soup3 = bs(implDoc.read(),"lxml")
+						implSubTitle = soup3.find('div', {"class":"subTitle"}).contents[0]
+						implTitle = soup3.find('h2',{"class":"title"}).contents[0].split('Class ')[1]
+						print "Impl: "+ implSubTitle+"."+implTitle
 					
-			#	if len(implementations) is 3:
-			#		implementationLinks = implementations[2].findAll('a')
-			#		for implementationLink in implementationLinks:
-			#			implLink = implementationLink.get('href')
-			#			implDoc = urllib2.urlopen(url+interfaceLink+"/../"+implLink)
-			#			soup3 = bs(implDoc.read(),"lxml")
-			#			implSubTitle = soup3.find('div', {"class":"subTitle"}).contents[0]
-			#			implTitle = soup3.find('h2',{"class":"title"}).contents[0].split('Class ')[1]
-			#			print "Impl: "+ implSubTitle+"."+implTitle
+				if len(implementations) is 3:
+					implementationLinks = implementations[2].findAll('a')
+					for implementationLink in implementationLinks:
+						implLink = implementationLink.get('href')
+						implDoc = urllib2.urlopen(url+interfaceLink+"/../"+implLink)
+						soup3 = bs(implDoc.read(),"lxml")
+						implSubTitle = soup3.find('div', {"class":"subTitle"}).contents[0]
+						implTitle = soup3.find('h2',{"class":"title"}).contents[0].split('Class ')[1]
+						print "Impl: "+ implSubTitle+"."+implTitle
 
 	def preprocessing(self,desc):
 		#desc = re.sub("\[\]\{\}\!\@\#\$\%\^\&\*\(\)\?'\:\;,+","",desc)
