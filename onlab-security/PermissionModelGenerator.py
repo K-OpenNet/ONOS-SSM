@@ -776,10 +776,6 @@ class makePermission:
 		ttverb=desc.split(' ')[0]
 		permission+=ttverb
 		
-#permission+=ttverb.contents[0].split(':')[1].split('.')[0]
-#print 'Asset : ', ttverb.contents[0].split(':')[1].split('.')[0]
-
-
 		cols = table.findAll('td',{'class':pattern})
 		for column in cols:
 			a = column.findAll('a', href=True)
@@ -801,24 +797,7 @@ class makePermission:
 	#cols = [ele.text.strip() for ele in cols]
 	#f1.write([ele for ele in cols if ele])
 	#data.append([ele for ele in cols if ele])
-#f1.close()
-#f1 = codecs.open('output.txt','wb','utf8')
-#f1.write(data)
-#f1.close()
-#f1 = open('/home/sdn/test.text', 'w+')
-#f1.write(r.text)
-
-#print r.text
-#req = urllib2.Request(url,data)
-#response = urllib2.urlopen(req)
-#result = response.read()
-#f1 = open('/home/sdn/test.text', 'w+')
-#f1.write(data.encode('utf-8'))
-#f1.close()
-##print response.read()
 
 m = makePermission()
-
-#m.drawOnosTree()
 
 m.getOnosDesc()
