@@ -729,9 +729,6 @@ class makePermission:
 		chunker = RegexpParser(grammar)
 		chunked = chunker.parse(tagged)
 		chunkedSentence=str(chunked) #for test print
-		#print objectSentence
-		#print chunkedSentence
-		#print chunked
 		parsingRe = re.compile(" \w+/")
 		permission = ''
 		sy2 = wordnet.synsets('read')
@@ -780,10 +777,6 @@ class makePermission:
 		vdist = FreqDist()
 		ndist = FreqDist()
 		print 'init'
-		#print link
-	#cols = [ele.text.strip() for ele in cols]
-	#f1.write([ele for ele in cols if ele])
-	#data.append([ele for ele in cols if ele])
 
 m = makePermission()
 
