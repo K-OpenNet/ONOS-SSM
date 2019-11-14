@@ -533,11 +533,6 @@ class makePermission:
 		chunker = RegexpParser(grammar)
 		chunked = chunker.parse(tagged)
 		chunkedSentence=str(chunked) #for test print
-		#print objectSentence
-		#print chunkedSentence
-		#f1.write("Object      : " + objectSentence+"\n")##
-		#f1.write("chunkedSentence:" + chunkedSentence+"\n")##
-		#print chunked
 		parsingRe = re.compile(" \w+/")
 		permission = ''
 		ttverb = inflection.singularize(ttverb)
@@ -614,7 +609,6 @@ class makePermission:
 
 		#tt= map(lambda x: list(x.subtress(filter=lambda x: x.node=='NN')),NPs)
 
-		#print tt
 	def supportFullsentence(self,desc):
 		text=nltk.word_tokenize(objectSentence)
 		tagged = nltk.pos_tag(text)
@@ -635,6 +629,42 @@ class makePermission:
 				verb="Execute"
 				break
 		return verb
+	def semanticParsing(self,desc):
+		url='http://cogcomp.cs.illinois.edu/demo_files/SRL.php'
+	
+		ddesc = desc.lower()
+		print ddesc
+		data = "{\"text\":\"It "+ddesc+"\"}"
+
+		r = requests.post(url,data)
+		soup = bs(r.text,"lxml")
+		table = soup.find('table', {"class":"table table-condensed"})
+
+		f1 = open('/home/sdn/temp.txt', 'w+')
+		rows = table.findAll('tr')
+
+		pattern = re.compile("col_..nom",re.IGNORECASE)
+
+#for row in rows:
+		permission = ''
+#verb = table.findAll('td',{'class':'col_2 V'})
+#tverb = verb[0].findAll('a', href=True)
+#ttverb = tverb[0]
+		ttverb=desc.split(' ')[0]
+		permission+=ttverb
+		
+		cols = table.findAll('td',{'class':pattern})
+		for column in cols:
+			a = column.findAll('a', href=True)
+			if a is not None:
+				for atemp in a:
+					tt = str(atemp)
+					if tt.find("NOM") != -1:
+						permission+='_'+atemp.contents[0].split('.')[0]
+				#print "Resource : " + atemp.contents[0].split('.')[0]
+					else:
+						print 'not a NOM'
+		return permission
 
 	def supportInTo(self,desc,meaning):
 		if desc is "Deprecated.":
@@ -706,15 +736,7 @@ class makePermission:
 		permission = ''
 		sy2 = wordnet.synsets('read')
 		sy3 = wordnet.synsets('write')
-		#for s in sy1:
-		#	for t in sy2:
-		#		if wordnet.path_similarity(s,t) > 0.3:
-		#			ttverb = 'Read'
-		#for s in sy1:
-		#	for t in sy3:
-		#		if wordnet.path_similarity(s,t) >0.3:
-		#			ttverb = 'Write'
-		
+
 		
 		permission = ''
 		preOf = ''
@@ -752,42 +774,7 @@ class makePermission:
 		print permission
 		return permission
 
-	def semanticParsing(self,desc):
-		url='http://cogcomp.cs.illinois.edu/demo_files/SRL.php'
-	
-		ddesc = desc.lower()
-		print ddesc
-		data = "{\"text\":\"It "+ddesc+"\"}"
 
-		r = requests.post(url,data)
-		soup = bs(r.text,"lxml")
-		table = soup.find('table', {"class":"table table-condensed"})
-
-		f1 = open('/home/sdn/temp.txt', 'w+')
-		rows = table.findAll('tr')
-
-		pattern = re.compile("col_..nom",re.IGNORECASE)
-
-#for row in rows:
-		permission = ''
-#verb = table.findAll('td',{'class':'col_2 V'})
-#tverb = verb[0].findAll('a', href=True)
-#ttverb = tverb[0]
-		ttverb=desc.split(' ')[0]
-		permission+=ttverb
-		
-		cols = table.findAll('td',{'class':pattern})
-		for column in cols:
-			a = column.findAll('a', href=True)
-			if a is not None:
-				for atemp in a:
-					tt = str(atemp)
-					if tt.find("NOM") != -1:
-						permission+='_'+atemp.contents[0].split('.')[0]
-				#print "Resource : " + atemp.contents[0].split('.')[0]
-					else:
-						print 'not a NOM'
-		return permission
 
 	def __init__(self):
 		vdist = FreqDist()
