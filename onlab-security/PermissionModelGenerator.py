@@ -715,8 +715,7 @@ class makePermission:
 			objectSentence += str(sentence[num])			
 
 		print objectSentence
-		#nltk.download('punkt')
-		#nltk.download('maxent_treebank_pos_tagger')
+		
 		text=nltk.word_tokenize(objectSentence)
 		tagged = nltk.pos_tag(text)
 		#print tagged
