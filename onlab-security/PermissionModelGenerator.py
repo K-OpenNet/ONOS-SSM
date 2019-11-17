@@ -633,7 +633,7 @@ class makePermission:
 		url='http://cogcomp.cs.illinois.edu/demo_files/SRL.php'
 	
 		ddesc = desc.lower()
-		print ddesc
+		
 		data = "{\"text\":\"It "+ddesc+"\"}"
 
 		r = requests.post(url,data)
