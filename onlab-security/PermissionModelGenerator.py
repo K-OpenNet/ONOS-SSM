@@ -455,7 +455,6 @@ class makePermission:
 					ss = s[1].split("/")
 					removalWord = ss[0]
 					desc = desc.replace(" "+removalWord,"")
-		print desc
 		return desc
 
 	def semanticParsing2(self,desc,f1,flag):
