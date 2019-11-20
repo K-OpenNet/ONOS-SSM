@@ -476,7 +476,6 @@ class makePermission:
 			tempdesc += " "+splitDesc[i]
 		tempdesc = tempdesc.lower()
 		data = "{\"text\":\"It "+tempdesc+"\"}"
-		print data#
 
 		r = requests.post(url,data)
 		soup = bs(r.text,"lxml")
