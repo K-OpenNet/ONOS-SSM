@@ -643,11 +643,7 @@ class makePermission:
 
 		pattern = re.compile("col_..nom",re.IGNORECASE)
 
-#for row in rows:
 		permission = ''
-#verb = table.findAll('td',{'class':'col_2 V'})
-#tverb = verb[0].findAll('a', href=True)
-#ttverb = tverb[0]
 		ttverb=desc.split(' ')[0]
 		permission+=ttverb
 		
