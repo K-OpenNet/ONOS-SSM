@@ -87,7 +87,7 @@ class makePermission:
 	'Deactivate']
 
 	tree = Tree()#
-	tree.create_node("Root","ROOT") #
+	tree.create_node("Root","ROOT") 
 
 	def insertDB(self,controller,interface,implementation,description,permission):
 		conn = pymysql.connect(host='localhost', user='root', password='root', db=controller, charset='utf8')
