@@ -412,8 +412,6 @@ class makePermission:
 						print "Impl: "+ implSubTitle+"."+implTitle
 
 	def preprocessing(self,desc):
-		#desc = re.sub("\[\]\{\}\!\@\#\$\%\^\&\*\(\)\?'\:\;,+","",desc)
-		#desc = desc.translate(",!@#$%^&*()':{}[]`")
 		desc = desc.replace(","," ")
 		desc = desc.replace("!","")
 		desc = desc.replace("@","")
